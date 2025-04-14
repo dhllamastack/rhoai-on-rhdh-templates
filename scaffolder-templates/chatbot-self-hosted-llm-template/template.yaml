@@ -143,8 +143,8 @@ spec:
           owner: {{ '${{ user.entity.metadata.name }}' }}
           cluster: {{ cluster_subdomain }}
           host: {{ '${{ parameters.repo.host }}' }}
-          destination: {{ '${{ parameters.repo.owner }}' }}/{{ '${{ parameters.component_id }}' }}
-          quay_destination: {{ '${{ parameters.image_organization}}' }}/{{ '${{ parameters.component_id }}' }}
+          destination: "{{ '${{ parameters.repo.owner }}' }}/{{ '${{ parameters.component_id }}' }}"
+          quay_destination: "{{ '${{ parameters.image_organization}}' }}/{{ '${{ parameters.component_id }}' }}"
           port: 8080
           verify_commits: {{ '${{ parameters.repo.verify_commits }}' }}
           model_name: {{ '${{ parameters.model_name }}' }}
@@ -207,7 +207,7 @@ spec:
       name: Create ArgoCD Resources
       action: argocd:create-resources
       input:
-        appName: {{ '${{ parameters.component_id }}' }}-bootstrap
+        appName: "{{ '${{ parameters.component_id }}' }}-bootstrap"
         argoInstance: main
         namespace: janus-argocd
         repoUrl: https://{{ '${{ parameters.repo.host }}' }}/{{ '${{ parameters.repo.owner }}' }}/{{ '${{ parameters.component_id }}' }}-gitops.git
