@@ -132,7 +132,7 @@ spec:
         values:
           component_id: {{ '${{ parameters.component_id }}' }}
           description: {{ '${{ parameters.description }}' }}
-          namespace: {{ '${{ parameters.component_id }}' }}-dev
+          namespace: "{{ '${{ parameters.component_id }}' }}-dev"
           owner: {{ '${{ user.entity.metadata.name }}' }}
           cluster: {{ cluster_subdomain }}
           host: {{ '${{ parameters.repo.host }}' }}
@@ -172,7 +172,7 @@ spec:
           repository_name: {{ '${{parameters.component_id}}' }}
           git_owner: {{ '${{ parameters.repo.owner }}' }}
           cluster: {{ cluster_subdomain }}
-          namespace: {{ '${{ parameters.component_id }}' }}-dev
+          namespace: "{{ '${{ parameters.component_id }}' }}-dev"
           image_registry: {{ '${{ parameters.image_registry }}' }}
           image_host: {{ '${{ parameters.image_host }}' }}
           image_organization: {{ '${{ parameters.image_organization }}' }}
